@@ -7,12 +7,9 @@ import { Badge } from "@/components/ui/badge";
 import { 
   MessageCircle, 
   Users, 
-  Linkedin, 
-  Twitter, 
-  Instagram, 
-  Facebook,
-  Youtube,
-  Globe
+  Globe,
+  Code,
+  BookOpen
 } from "lucide-react";
 
 interface Platform {
@@ -25,11 +22,11 @@ interface Platform {
 
 const platforms: Platform[] = [
   {
-    id: "reddit",
-    name: "Reddit",
-    icon: MessageCircle,
-    color: "text-orange-500",
-    description: "Share in relevant subreddits"
+    id: "wikipedia",
+    name: "Wikipedia",
+    icon: Globe,
+    color: "text-gray-600",
+    description: "Knowledge contribution"
   },
   {
     id: "quora",
@@ -39,46 +36,25 @@ const platforms: Platform[] = [
     description: "Answer questions & share knowledge"
   },
   {
-    id: "linkedin",
-    name: "LinkedIn",
-    icon: Linkedin,
-    color: "text-blue-600",
-    description: "Professional networking"
+    id: "reddit",
+    name: "Reddit",
+    icon: MessageCircle,
+    color: "text-orange-500",
+    description: "Share in relevant subreddits"
   },
   {
-    id: "twitter",
-    name: "Twitter",
-    icon: Twitter,
-    color: "text-sky-500",
-    description: "Quick updates & threads"
+    id: "open-blogs",
+    name: "Open Blogs",
+    icon: BookOpen,
+    color: "text-blue-500",
+    description: "Publish on open blogging platforms"
   },
   {
-    id: "instagram",
-    name: "Instagram",
-    icon: Instagram,
-    color: "text-pink-500",
-    description: "Visual content & stories"
-  },
-  {
-    id: "facebook",
-    name: "Facebook",
-    icon: Facebook,
-    color: "text-blue-700",
-    description: "Social media engagement"
-  },
-  {
-    id: "youtube",
-    name: "YouTube",
-    icon: Youtube,
-    color: "text-red-600",
-    description: "Video content & community"
-  },
-  {
-    id: "wikipedia",
-    name: "Wikipedia",
-    icon: Globe,
-    color: "text-gray-600",
-    description: "Knowledge contribution"
+    id: "stack-overflow",
+    name: "Stack Overflow",
+    icon: Code,
+    color: "text-orange-600",
+    description: "Technical Q&A community"
   }
 ];
 
