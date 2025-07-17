@@ -7,17 +7,40 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Upload, Sparkles, Image as ImageIcon } from "lucide-react";
+import { Upload, Sparkles, Image as ImageIcon, Send } from "lucide-react";
+import { PlatformSelectionDialog } from "@/components/PlatformSelectionDialog";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Products() {
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
+  const [summary, setSummary] = useState("");
   const [tags, setTags] = useState("");
+  const [showPlatformDialog, setShowPlatformDialog] = useState(false);
+  const { toast } = useToast();
 
   const suggestedTags = [
     "AI-powered", "Content Management", "SEO Optimization", 
     "Digital Marketing", "Automation", "Analytics"
   ];
+
+  const handlePublish = (selectedPlatforms: string[]) => {
+    // Here you would implement the actual publishing logic
+    console.log("Publishing to platforms:", selectedPlatforms);
+    console.log("Product data:", {
+      productName,
+      description,
+      summary,
+      tags
+    });
+    
+    toast({
+      title: "Publishing Started!",
+      description: `Your content is being published to ${selectedPlatforms.length} platform(s).`,
+    });
+  };
+
+  const isFormValid = productName.trim() && description.trim() && summary.trim();
 
   return (
     <div className="flex-1 p-6">
@@ -32,7 +55,9 @@ export default function Products() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="productName" className="text-foreground">Product Name</Label>
+                <Label htmlFor="productName" className="text-foreground">
+                  Product Name <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="productName"
                   placeholder="Enter product name..."
@@ -43,13 +68,29 @@ export default function Products() {
               </div>
 
               <div>
-                <Label htmlFor="description" className="text-foreground">Description</Label>
+                <Label htmlFor="description" className="text-foreground">
+                  Description <span className="text-red-500">*</span>
+                </Label>
                 <Textarea
                   id="description"
-                  placeholder="Describe your product..."
+                  placeholder="Describe your product in detail..."
                   rows={4}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  className="mt-1 bg-background border-border text-foreground"
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="summary" className="text-foreground">
+                  Summary <span className="text-red-500">*</span>
+                </Label>
+                <Textarea
+                  id="summary"
+                  placeholder="Brief summary for social media posts..."
+                  rows={3}
+                  value={summary}
+                  onChange={(e) => setSummary(e.target.value)}
                   className="mt-1 bg-background border-border text-foreground"
                 />
               </div>
@@ -70,7 +111,9 @@ export default function Products() {
 
               <div>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="tags" className="text-foreground">SEO Tags</Label>
+                  <Label htmlFor="tags" className="text-foreground">
+                    SEO Tags <span className="text-sm text-muted-foreground">(Optional)</span>
+                  </Label>
                   <Button variant="outline" size="sm" className="text-primary">
                     <Sparkles className="mr-2 h-4 w-4" />
                     AI Suggest
@@ -85,8 +128,13 @@ export default function Products() {
                 />
               </div>
 
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Generate & Queue Content
+              <Button 
+                className="w-full bg-psi-green hover:bg-psi-green/90 text-black"
+                onClick={() => setShowPlatformDialog(true)}
+                disabled={!isFormValid}
+              >
+                <Send className="mr-2 h-4 w-4" />
+                Publish to Platforms
               </Button>
             </CardContent>
           </Card>
@@ -123,23 +171,38 @@ export default function Products() {
                     yoursite.com › products › {productName.toLowerCase().replace(/\s+/g, '-') || 'product-name'}
                   </div>
                   <div className="text-muted-foreground text-sm">
-                    {description || "Discover our innovative product that revolutionizes your workflow with AI-powered features..."} 
+                    {summary || description || "Discover our innovative product that revolutionizes your workflow with AI-powered features..."} 
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-foreground mb-2">Content Strategy</h4>
+                <h4 className="text-sm font-medium text-foreground mb-2">Publishing Strategy</h4>
                 <div className="text-sm text-muted-foreground space-y-2">
-                  <p>• Target platforms: Wikipedia, Reddit, Quora</p>
+                  <p>• Multi-platform distribution</p>
                   <p>• Estimated reach: 50K+ impressions</p>
-                  <p>• Content schedule: 3-5 posts over 2 weeks</p>
+                  <p>• Optimized for each platform</p>
+                  <p>• Real-time analytics tracking</p>
                 </div>
               </div>
+
+              {!isFormValid && (
+                <div className="bg-yellow-500/10 border border-yellow-500/50 rounded-lg p-3">
+                  <p className="text-sm text-yellow-400">
+                    Please fill in all required fields to enable publishing.
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>
       </div>
+
+      <PlatformSelectionDialog
+        open={showPlatformDialog}
+        onOpenChange={setShowPlatformDialog}
+        onPublish={handlePublish}
+      />
     </div>
   );
 }
