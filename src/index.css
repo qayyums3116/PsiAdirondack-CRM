@@ -7,44 +7,50 @@
 
 @layer base {
   :root {
-    --background: 210 11% 11%; /* #1E1E2A - Charcoal base */
-    --foreground: 0 0% 95%; /* #F2F2F2 - Light gray text */
+    --background: 210 11% 7%; /* #0D1117 - Deep charcoal */
+    --foreground: 0 0% 90%; /* #E5E5E5 - Soft off-white */
 
-    --card: 220 7% 18%; /* #2E2F42 - Dark slate cards */
-    --card-foreground: 0 0% 100%; /* #FFFFFF - White headers */
+    --card: 220 7% 12%; /* Darker card background */
+    --card-foreground: 0 0% 90%; /* #E5E5E5 - Soft off-white */
 
-    --popover: 220 7% 18%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 7% 12%;
+    --popover-foreground: 0 0% 90%;
 
-    --primary: 196 100% 47%; /* #00AEEF - Electric cyan */
-    --primary-foreground: 0 0% 100%;
+    --primary: 141 100% 45%; /* #00E676 - Vibrant neon green */
+    --primary-foreground: 0 0% 0%; /* Black text on green */
 
-    --secondary: 220 7% 25%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 283 59% 43%; /* #8E44AD - Muted purple */
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 7% 15%;
+    --muted: 220 7% 10%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 196 100% 47%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 141 100% 45%; /* #00E676 - Vibrant neon green */
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 7% 25%;
-    --input: 220 7% 25%;
-    --ring: 196 100% 47%;
+    --border: 283 59% 43%; /* #8E44AD - Muted purple for borders */
+    --input: 220 7% 15%;
+    --ring: 141 100% 45%; /* #00E676 - Vibrant neon green */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 220 7% 18%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 196 100% 47%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 7% 25%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 7% 25%;
-    --sidebar-ring: 196 100% 47%;
+    --sidebar-background: 220 7% 12%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 141 100% 45%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 283 59% 43%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 283 59% 43%;
+    --sidebar-ring: 141 100% 45%;
+
+    /* Custom PsiAdirondack colors */
+    --psi-dark: 210 11% 7%; /* #0D1117 */
+    --psi-text: 0 0% 90%; /* #E5E5E5 */
+    --psi-green: 141 100% 45%; /* #00E676 */
+    --psi-purple: 283 59% 43%; /* #8E44AD */
   }
 }
 
@@ -74,5 +80,33 @@
   
   .gradient-border {
     @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-transparent;
+  }
+
+  .bg-psi-dark {
+    background-color: hsl(var(--psi-dark));
+  }
+
+  .text-psi-text {
+    color: hsl(var(--psi-text));
+  }
+
+  .bg-psi-green {
+    background-color: hsl(var(--psi-green));
+  }
+
+  .text-psi-green {
+    color: hsl(var(--psi-green));
+  }
+
+  .bg-psi-purple {
+    background-color: hsl(var(--psi-purple));
+  }
+
+  .text-psi-purple {
+    color: hsl(var(--psi-purple));
+  }
+
+  .border-psi-purple {
+    border-color: hsl(var(--psi-purple));
   }
 }

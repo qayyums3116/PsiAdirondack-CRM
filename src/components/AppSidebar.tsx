@@ -49,7 +49,7 @@ export function AppSidebar() {
         {!isCollapsed ? (
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">P</span>
+              <span className="text-primary-foreground font-bold text-lg">Ψ</span>
             </div>
             <div>
               <h2 className="text-sm font-semibold text-card-foreground">PsiAdirondack</h2>
@@ -58,7 +58,7 @@ export function AppSidebar() {
           </div>
         ) : (
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mx-auto">
-            <span className="text-primary-foreground font-bold text-sm">P</span>
+            <span className="text-primary-foreground font-bold text-lg">Ψ</span>
           </div>
         )}
       </SidebarHeader>

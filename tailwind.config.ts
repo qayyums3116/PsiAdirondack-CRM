@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom PsiAdirondack colors
+				'psi-dark': 'hsl(var(--psi-dark))',
+				'psi-text': 'hsl(var(--psi-text))',
+				'psi-green': 'hsl(var(--psi-green))',
+				'psi-purple': 'hsl(var(--psi-purple))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
