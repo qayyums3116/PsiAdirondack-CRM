@@ -63,11 +63,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom PsiAdirondack colors
-				'psi-dark': 'hsl(var(--psi-dark))',
-				'psi-text': 'hsl(var(--psi-text))',
-				'psi-green': 'hsl(var(--psi-green))',
-				'psi-purple': 'hsl(var(--psi-purple))'
+				// Custom theme colors
+				'theme-primary-start': 'hsl(var(--theme-primary-gradient-start))',
+				'theme-primary-end': 'hsl(var(--theme-primary-gradient-end))',
+				'theme-heading': 'hsl(var(--theme-heading))',
+				'theme-paragraph': 'hsl(var(--theme-paragraph))',
+				'theme-bg-light': 'hsl(var(--theme-background-light))',
+				'theme-bg-lighter': 'hsl(var(--theme-background-lighter))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

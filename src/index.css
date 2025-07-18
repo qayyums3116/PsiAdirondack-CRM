@@ -7,50 +7,52 @@
 
 @layer base {
   :root {
-    --background: 210 11% 7%; /* #0D1117 - Deep charcoal */
-    --foreground: 0 0% 90%; /* #E5E5E5 - Soft off-white */
+    --background: 254 100% 97%; /* #F4F2FF - Light purple gradient background */
+    --foreground: 219 12% 11%; /* #111827 - Very dark gray, almost black */
 
-    --card: 220 7% 12%; /* Darker card background */
-    --card-foreground: 0 0% 90%; /* #E5E5E5 - Soft off-white */
+    --card: 0 0% 100%; /* #FFFFFF - White base background */
+    --card-foreground: 219 12% 11%; /* #111827 - Very dark gray for card text */
 
-    --popover: 220 7% 12%;
-    --popover-foreground: 0 0% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 219 12% 11%;
 
-    --primary: 141 100% 45%; /* #00E676 - Vibrant neon green */
-    --primary-foreground: 0 0% 0%; /* Black text on green */
+    --primary: 245 81% 58%; /* #4F46E5 - Deep blue primary */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    --secondary: 283 59% 43%; /* #8E44AD - Muted purple */
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 220 13% 69%; /* #D1D5DB - Light gray for secondary elements */
+    --secondary-foreground: 219 13% 22%; /* #374151 - Slate gray text */
 
-    --muted: 220 7% 10%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 254 91% 95%; /* #EDE9FE - Light purple muted background */
+    --muted-foreground: 220 9% 46%; /* #6B7280 - Cool gray text */
 
-    --accent: 141 100% 45%; /* #00E676 - Vibrant neon green */
-    --accent-foreground: 0 0% 0%;
+    --accent: 213 94% 68%; /* #3B82F6 - Blue accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 283 59% 43%; /* #8E44AD - Muted purple for borders */
-    --input: 220 7% 15%;
-    --ring: 141 100% 45%; /* #00E676 - Vibrant neon green */
+    --border: 220 13% 69%; /* #D1D5DB - Light gray borders */
+    --input: 0 0% 100%; /* White input background */
+    --ring: 245 81% 58%; /* #4F46E5 - Deep blue focus ring */
 
     --radius: 0.5rem;
 
-    --sidebar-background: 220 7% 12%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 141 100% 45%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 283 59% 43%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 283 59% 43%;
-    --sidebar-ring: 141 100% 45%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 219 12% 11%;
+    --sidebar-primary: 245 81% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 254 91% 95%;
+    --sidebar-accent-foreground: 220 9% 46%;
+    --sidebar-border: 220 13% 69%;
+    --sidebar-ring: 245 81% 58%;
 
-    /* Custom PsiAdirondack colors */
-    --psi-dark: 210 11% 7%; /* #0D1117 */
-    --psi-text: 0 0% 90%; /* #E5E5E5 */
-    --psi-green: 141 100% 45%; /* #00E676 */
-    --psi-purple: 283 59% 43%; /* #8E44AD */
+    /* Custom theme colors */
+    --theme-primary-gradient-start: 245 81% 58%; /* #4F46E5 */
+    --theme-primary-gradient-end: 213 94% 68%; /* #3B82F6 */
+    --theme-heading: 219 12% 11%; /* #111827 */
+    --theme-paragraph: 220 9% 46%; /* #6B7280 */
+    --theme-background-light: 254 100% 97%; /* #F4F2FF */
+    --theme-background-lighter: 254 91% 95%; /* #EDE9FE */
   }
 }
 
@@ -82,31 +84,33 @@
     @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-transparent;
   }
 
-  .bg-psi-dark {
-    background-color: hsl(var(--psi-dark));
+  .bg-theme-gradient {
+    background: linear-gradient(135deg, hsl(var(--theme-primary-gradient-start)), hsl(var(--theme-primary-gradient-end)));
   }
 
-  .text-psi-text {
-    color: hsl(var(--psi-text));
+  .text-theme-heading {
+    color: hsl(var(--theme-heading));
   }
 
-  .bg-psi-green {
-    background-color: hsl(var(--psi-green));
+  .text-theme-paragraph {
+    color: hsl(var(--theme-paragraph));
   }
 
-  .text-psi-green {
-    color: hsl(var(--psi-green));
+  .bg-theme-light {
+    background-color: hsl(var(--theme-background-light));
   }
 
-  .bg-psi-purple {
-    background-color: hsl(var(--psi-purple));
+  .bg-theme-lighter {
+    background-color: hsl(var(--theme-background-lighter));
   }
 
-  .text-psi-purple {
-    color: hsl(var(--psi-purple));
+  .btn-primary-gradient {
+    background: linear-gradient(135deg, hsl(var(--theme-primary-gradient-start)), hsl(var(--theme-primary-gradient-end)));
+    color: white;
+    border: none;
   }
 
-  .border-psi-purple {
-    border-color: hsl(var(--psi-purple));
+  .btn-primary-gradient:hover {
+    background: linear-gradient(135deg, hsl(var(--theme-primary-gradient-start) / 0.9), hsl(var(--theme-primary-gradient-end) / 0.9));
   }
 }
